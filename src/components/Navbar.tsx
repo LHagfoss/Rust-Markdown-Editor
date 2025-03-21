@@ -2,8 +2,8 @@
 
 import React, { useEffect, useRef, useState } from 'react';
 import { IoMenuOutline, IoCloseOutline } from 'react-icons/io5';
-import gsap from 'gsap';
 import Link from 'next/link';
+import { initializeMenuState, openMenu, closeMenu } from '@/utils/animations';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,50 +22,15 @@ const Navbar = () => {
   useEffect(() => {
     if (!menuRef.current || !linksRef.current || !footerRef.current) return;
 
-    gsap.set([linksRef.current.children, footerRef.current], {
-      opacity: 0,
-      y: 50,
-    });
+    const elements = {
+      menu: menuRef.current,
+      links: linksRef.current,
+      footer: footerRef.current,
+    };
 
-    const tl = gsap.timeline({ paused: true });
+    initializeMenuState(elements);
 
-    if (isOpen) {
-      tl.to(menuRef.current, {
-        clipPath: 'circle(150% at calc(100% - 2.5rem) 2.5rem)',
-        duration: 1,
-        ease: 'power4.inOut',
-      })
-      .to(linksRef.current.children, {
-        y: 0,
-        opacity: 1,
-        duration: 0.4,
-        stagger: 0.1,
-        ease: 'power2.out',
-      }, '-=0.5')
-      .to(footerRef.current, {
-        y: 0,
-        opacity: 1,
-        duration: 0.4,
-        ease: 'power2.out',
-      }, '-=0.2');
-
-      tl.play();
-    } else {
-      tl.to([linksRef.current.children, footerRef.current], {
-        y: 50,
-        opacity: 0,
-        duration: 0.2,
-        stagger: 0.05,
-        ease: 'power2.in',
-      })
-      .to(menuRef.current, {
-        clipPath: 'circle(0% at calc(100% - 2.5rem) 2.5rem)',
-        duration: 0.8,
-        ease: 'power4.inOut',
-      }, '-=0.2');
-
-      tl.play();
-    }
+    const tl = isOpen ? openMenu(elements) : closeMenu(elements);
 
     return () => {
       tl.kill();
@@ -74,18 +39,25 @@ const Navbar = () => {
 
   return (
     <>
+      <Link href="/" className="fixed top-16 left-16 flex gap-2 items-center">
+        <span className="bg-[#d1c5c5] rounded-xl z-[100] w-16 h-16 flex items-center justify-center text-2xl">CS</span>
+        <span className="text-2xl font-light">Cecilia <br /> Skogstad</span>
+      </Link>
+
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-8 right-8 z-[100] p-2 text-4xl"
+        className="fixed top-16 right-16 z-[100] text-4xl cursor-pointer hover:bg-[#d1c5c5] rounded-full"
         aria-label="Toggle Menu"
       >
-        <div className="relative w-8 h-8">
+        <div className="relative w-16 h-16 flex items-center justify-center">
           <IoMenuOutline
+            size={48}
             className={`absolute transition-all duration-300 ${
               isOpen ? 'opacity-0 rotate-180 scale-0' : 'opacity-100 rotate-0 scale-100'
             }`}
           />
           <IoCloseOutline
+            size={48}
             className={`absolute transition-all duration-300 ${
               isOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 rotate-180 scale-0'
             }`}
@@ -93,9 +65,9 @@ const Navbar = () => {
         </div>
       </button>
 
-      <div
+      <nav
         ref={menuRef}
-        className="fixed inset-0 bg-[#fceded] text-[#171717] clip-circle z-[90]"
+        className="fixed inset-0 bg-[#fceded] text-[#160b03] clip-circle z-[90]"
         style={{
           clipPath: 'circle(0% at calc(100% - 2.5rem) 2.5rem)',
         }}
@@ -106,7 +78,7 @@ const Navbar = () => {
               <li key={link.href} className="relative">
                 <Link
                   href={link.href}
-                  className="hover:text-gray-400 transition-colors duration-300 block"
+                  className="hover:text-[#6d4f3c] transition-colors duration-300 block"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
@@ -115,12 +87,12 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <div ref={footerRef} className="text-gray-400 relative">
-            <p className="text-xl">Hygge</p>
+          <div ref={footerRef} className="text-[#160b03] relative">
+            <p className="text-xl">Email:</p>
             <p className="text-3xl mt-2">cecilie@example.bla</p>
           </div>
         </div>
-      </div>
+      </nav>
     </>
   );
 };
