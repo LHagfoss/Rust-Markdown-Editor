@@ -14,8 +14,9 @@ const Navbar = () => {
   const menuLinks = [
     { href: '/', label: 'Hjem' },
     { href: '/tjenester', label: 'Tjenester' },
-    { href: '/om', label: 'Om' },
+    { href: '/om', label: 'Om meg' },
     { href: '/artikler', label: 'Artikler' },
+    { href: '/blogg', label: 'Blogg' },
     { href: '/contact', label: 'Kontakt' },
   ];
 
@@ -39,7 +40,7 @@ const Navbar = () => {
 
   return (
     <>
-      <Link href="/" className="fixed top-16 left-16 flex gap-2 items-center">
+      <Link href="/" className="fixed top-16 left-16 flex gap-2 items-center z-[90]">
         <span className="bg-[#d1c5c5] rounded-xl z-[100] w-16 h-16 flex items-center justify-center text-2xl">CS</span>
         <span className="text-2xl font-light">Cecilia <br /> Skogstad</span>
       </Link>
@@ -78,7 +79,7 @@ const Navbar = () => {
               <li key={link.href} className="relative">
                 <Link
                   href={link.href}
-                  className="hover:text-[#6d4f3c] transition-colors duration-300 block"
+                  className="w-fit hover:text-[#6d4f3c] transition-colors duration-300 block"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
