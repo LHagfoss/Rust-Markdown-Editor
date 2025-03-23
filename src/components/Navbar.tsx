@@ -40,14 +40,14 @@ const Navbar = () => {
 
   return (
     <>
-      <Link href="/" className="fixed top-16 left-16 flex gap-2 items-center z-[90]">
+      <Link href="/" className="fixed top-8 md:top-16 left-4 md:left-16 flex gap-2 items-center z-[90]">
         <span className="bg-[#d1c5c5] rounded-xl z-[100] w-16 h-16 flex items-center justify-center text-2xl">CS</span>
         <span className="text-2xl font-light">Cecilia <br /> Skogstad</span>
       </Link>
 
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-16 right-16 z-[100] text-4xl cursor-pointer hover:bg-[#d1c5c5] rounded-full"
+        className="fixed top-8 md:top-16 right-4 md:right-16 z-[100] text-4xl cursor-pointer hover:bg-[#d1c5c5] rounded-full"
         aria-label="Toggle Menu"
       >
         <div className="relative w-16 h-16 flex items-center justify-center">
@@ -73,13 +73,13 @@ const Navbar = () => {
           clipPath: 'circle(0% at calc(100% - 2.5rem) 2.5rem)',
         }}
       >
-        <div className="h-full flex flex-col justify-between p-20">
+        <div className="h-full flex flex-col justify-around px-4 md:px-16">
           <ul ref={linksRef} className="space-y-8 text-6xl font-light mt-20 relative">
             {menuLinks.map((link) => (
               <li key={link.href} className="relative">
                 <Link
                   href={link.href}
-                  className="w-fit hover:text-[#6d4f3c] transition-colors duration-300 block"
+                  className="w-fit hover:text-[#6d4f3c] text-2xl md:text-5xl transition-colors duration-300 block"
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
@@ -88,9 +88,9 @@ const Navbar = () => {
             ))}
           </ul>
 
-          <div ref={footerRef} className="text-[#160b03] relative">
+          <div ref={footerRef} className="">
             <p className="text-xl">Email:</p>
-            <p className="text-3xl mt-2">cecilie@example.bla</p>
+            <p className="text-2xl md:text-3xl mt-2">cecilie@example.blablabla</p>
           </div>
         </div>
       </nav>

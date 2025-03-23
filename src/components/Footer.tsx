@@ -5,8 +5,8 @@ import { FaInstagram, FaLinkedin } from 'react-icons/fa'
 
 const Footer = () => {
   return (
-    <footer className='w-full bg-[#fceded] border-t border-[#171717]/10'>
-      <div className="max-w-5xl mx-auto px-16 py-12">
+    <footer className='w-full bg-[#fceded] border-t border-[#171717]/10 mt-12'>
+      <div className="max-w-5xl mx-auto px-4 md:px-16 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
           <div className="space-y-4">
             <h3 className="text-xl font-medium">Cecilie Skogstad</h3>
