@@ -90,7 +90,7 @@ const Navbar = () => {
 
           <div ref={footerRef} className="">
             <p className="text-xl">Email:</p>
-            <p className="text-2xl md:text-3xl mt-2">cecilie@example.blablabla</p>
+            <p className="text-2xl md:text-3xl mt-2">cecilieskogstad@hotmail.com</p>
           </div>
         </div>
       </nav>
