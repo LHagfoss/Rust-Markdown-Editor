@@ -1,11 +1,5 @@
 import React from 'react';
-
-const services = [
-  { service: 'Individualterapi 60 min', price: '1380,-', details: '(ink. mva.)' },
-  { service: 'Individualterapi 90 min', price: '1800,-', details: '(ink. mva.)' },
-  { service: 'Parterapi eller familieterapi 90 min', price: '2300,-', details: '(ink. mva)' },
-  { service: 'Individualterapi student ved NGI 60 min', price: '900,-', details: '' },
-];
+import { services } from '@/data/services';
 
 export const PricingSection = () => {
   return (
@@ -15,9 +9,14 @@ export const PricingSection = () => {
       <div className="space-y-4">
         <div className="flex flex-col gap-6">
           {services.map((item, index) => (
-            <div key={index} className="flex justify-between items-center py-4 border-b border-[#171717]/10">
+            <div 
+              key={index} 
+              className="flex justify-between items-center py-4 border-b border-[#171717]/10 hover:bg-[#fceded] transition-colors px-4 rounded-lg"
+            >
               <span className="text-xl">{item.service}</span>
-              <span className="text-xl font-medium">{item.price} <span className="text-gray-600">{item.details}</span></span>
+              <span className="text-xl font-medium">
+                {item.price} <span className="text-gray-600">{item.details}</span>
+              </span>
             </div>
           ))}
         </div>

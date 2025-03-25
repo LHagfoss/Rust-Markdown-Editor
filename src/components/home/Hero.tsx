@@ -1,5 +1,6 @@
 import { AvailabilityBadge } from "../ui/AvailabilityBadge";
 import { BookButton } from "../ui/BookButton";
+import { TjenesterButton } from "../ui/TjenesterButton";
 
 export const Hero = () => {
   return (
@@ -9,16 +10,18 @@ export const Hero = () => {
           <AvailabilityBadge />
         </div>
       
-      <div className="text-xl">Mulighet for online samtaler ved ønske.</div>
+      <h2 className="text-2xl">Trenger du noen å snakke med?</h2>
 
-      <p className="">
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. 
-        Ad eius esse reiciendis dolorem. Unde quia porro impedit, 
-        laudantium iste dolore fuga assumenda quo labore nam at repellendus mollitia, 
-        veniam expedita!
+      <p className="mb-4">
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. 
+        Nihil a magnam assumenda labore ad debitis explicabo cum iure excepturi! 
+        Voluptate quod minus velit quibusdam odit.
       </p>
     
-      <BookButton />
+      <div className="flex gap-4">
+        <BookButton />
+        <TjenesterButton />
+      </div>
     </section>
   );
 };
