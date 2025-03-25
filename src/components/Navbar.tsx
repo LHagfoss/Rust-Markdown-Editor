@@ -14,7 +14,7 @@ const Navbar = () => {
   const menuLinks = [
     { href: '/', label: 'Hjem' },
     { href: '/tjenester', label: 'Tjenester' },
-    { href: '/om', label: 'Om meg' },
+    { href: '/om-meg', label: 'Om meg' },
     { href: '/artikler', label: 'Artikler' },
     { href: '/blogg', label: 'Blogg' },
     { href: '/contact', label: 'Kontakt' },
@@ -42,7 +42,7 @@ const Navbar = () => {
     <>
       <Link href="/" className="fixed top-8 md:top-16 left-4 md:left-16 flex gap-2 items-center z-[90]">
         <span className="bg-[#d1c5c5] rounded-xl z-[100] w-16 h-16 flex items-center justify-center text-2xl">CS</span>
-        <span className="text-2xl font-light">Cecilia <br /> Skogstad</span>
+        <span className="text-2xl font-light">Cecilie <br /> Skogstad</span>
       </Link>
 
       <button
