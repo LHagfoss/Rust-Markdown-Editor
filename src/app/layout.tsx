@@ -4,6 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+
 const googleFont = Playfair_Display({
   variable: "--googleFont",
   subsets: ["latin"],
@@ -21,11 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${googleFont.variable} antialiased`}
-      >
+      <body className={`${googleFont.variable} antialiased`}>
         <Navbar />
-        {children}
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

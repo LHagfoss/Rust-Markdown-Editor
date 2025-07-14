@@ -1,5 +1,11 @@
 import { PricingSection } from '@/components/services/PricingSection';
 import { PrivacySection } from '@/components/services/PrivacySection';
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Tjenester og Priser - Cecilie Skogstad",
+  description: "Oversikt over gestaltterapitjenester og priser tilbudt av Cecilie Skogstad. Finn informasjon om individualterapi, parterapi og mer.",
+};
 
 const ServicePage = () => {
   return (

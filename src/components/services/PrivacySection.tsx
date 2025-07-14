@@ -7,7 +7,7 @@ interface InfoBlockProps {
 
 const InfoBlock: React.FC<InfoBlockProps> = ({ title, items }) => (
   <div className='mb-4'>
-    <h3 className="text-2xl text-[#171717] mb-2">{title}</h3>
+    <h3 className="text-2xl text-[var(--textDark)] mb-2">{title}</h3>
     <ul className="list-disc pl-6 space-y-2">
       {items.map((item, index) => (
         <li key={index}>{item}</li>
@@ -23,7 +23,7 @@ export const PrivacySection = () => {
     <section className="space-y-8">
       <h2 className="text-3xl md:text-4xl mb-8">Personvern</h2>
       
-      <div className="prose prose-lg max-w-none text-gray-600">
+      <div className="prose prose-lg max-w-none text-[var(--textDark)]/70">
         <p>
           Jeg oppfordrer deg til å lese mer om taushetsplikt under. Jeg sørger for at hensynet til anonymitet ivaretas, 
           har taushetsplikt og følger EUs forordning for personvern (GDPR).
